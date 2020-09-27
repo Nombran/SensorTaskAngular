@@ -1,0 +1,45 @@
+<div class="page-container">
+    <div class="header-container">
+        <h1>Sensor Table</h1>
+        <input type="button" value="Logout" (click)="logout()">
+    </div>
+    <div class="search-container">
+        <mat-form-field class="example-full-width">
+            <mat-label>Search</mat-label>
+            <input matInput [formControl]="searchFormControl" autocomplete="off">
+        </mat-form-field>
+        <input type="button" value="Search" (click)="debouncedSearch()">
+    </div>
+    <p-table [value]="sensors" [lazy]="true" (onLazyLoad)="changePageHandler($event)" [paginator]="true"
+        [rows]="perPage" [totalRecords]="totalRecords" [loading]="loading">
+        <ng-template pTemplate="header">
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Model</th>
+                <th>Type</th>
+                <th>Range</th>
+                <th>Unit</th>
+                <th>Location</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sensor>
+            <tr>
+                <td>
+                    <p-button *ngIf="userRole=='ROLE_ADMIN'" type="button" icon="pi pi-pencil" (click)="editSensor(sensor.id)"></p-button>
+                </td>
+                <td>{{sensor.name}}</td>
+                <td>{{sensor.model}}</td>
+                <td>{{sensor.sensorType}}</td>
+                <td>{{sensor.rangeTo}}</td>
+                <td>{{sensor.unit}}</td>
+                <td>{{sensor.location}}</td>
+                <td>
+                    <p-button *ngIf="userRole=='ROLE_ADMIN'" type="button" icon="pi pi-times" (click)="removeSensor(sensor.id)"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <input *ngIf="userRole=='ROLE_ADMIN'" type="button" value="Create Sensor" class="create" (click)="createSensor()">
+</div>

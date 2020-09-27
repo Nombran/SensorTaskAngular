@@ -1,0 +1,73 @@
+@import "../../../styles.scss";
+
+::ng-deep .snackbar-error {
+    color: white;
+    background:red;
+}
+
+::ng-deep .snackbar-success {
+    color: white;
+    background: green;
+}
+
+.page-container {
+    @include flex-column;
+    justify-content: flex-start;
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    p-table {
+        width: 70%;
+        border: 1px solid black;
+    }
+    .create {
+        height: 5vh;
+        width: 15vw;
+        margin-top: 2vh;
+        color: white;
+        background-color: rgb(0, 119, 255);
+        border: 1px solid rgb(0, 119, 255);
+        &:hover {
+            cursor: pointer;
+            color: rgb(0, 119, 255);
+            background-color: white;
+        }
+    }
+    .header-container {
+        @include flex-row;
+        align-self: start;
+        width: 100%;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        input {
+            height: 50%;
+            color: white;
+            background-color: rgb(0, 119, 255);
+            margin-bottom: 1vh;
+            border: 1px solid rgb(0, 119, 255);
+            &:hover {
+                cursor: pointer;
+                color: rgb(0, 119, 255);
+                background-color: white;
+            }
+        }
+    }
+    .search-container {
+        width: 70%;
+        @include flex-row;
+        input[type="button"] {
+            height: 4vh;
+            margin-bottom: 1vh;
+            color: white;
+            background-color: rgb(0, 119, 255);
+            border: 1px solid rgb(0, 119, 255);
+            &:hover {
+                cursor: pointer;
+                color: rgb(0, 119, 255);
+                background-color: white;
+            }
+        }
+    }
+}

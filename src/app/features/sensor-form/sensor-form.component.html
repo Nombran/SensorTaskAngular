@@ -1,0 +1,78 @@
+<h1>Sensor Form</h1>
+<form [formGroup]="formGroup" class="form-container">
+    <div class="column">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input [(ngModel)]="sensor.name" matInput autocomplete="off" formControlName="name">
+            <mat-error *ngIf="_name.invalid && _name.errors.required">Name is required filed
+            </mat-error>
+            <mat-error *ngIf="_name.invalid && _name.errors.maxlength">Name length must be less than 31
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Model</mat-label>
+            <input [(ngModel)]="sensor.model" matInput autocomplete="off" formControlName="model">
+            <mat-error *ngIf="_model.invalid && _model.errors.required">Model is required filed
+            </mat-error>
+            <mat-error *ngIf="_model.invalid && _model.errors.maxlength">Model length must be less than 16
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Range from</mat-label>
+            <input [(ngModel)]="sensor.rangeTo" type="number" matInput autocomplete="off" formControlName="rangeFrom">
+            <mat-error *ngIf="_rangeFrom.invalid && _rangeFrom.errors.required">Range from is required filed
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Range To</mat-label>
+            <input [(ngModel)]="sensor.rangeFrom" type="number" matInput autocomplete="off" formControlName="rangeTo">
+            <mat-error *ngIf="_rangeTo.invalid && _rangeTo.errors.required">Range from is required filed
+            </mat-error>
+            <mat-error *ngIf="_rangeTo.invalid && _rangeTo.errors.matching && !_rangeTo.errors.required">Range from must be less than range to
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="column">
+        <mat-form-field appearance="fill">
+            <mat-label>Type</mat-label>
+            <mat-select [(ngModel)]="sensor.sensorType" name="type" formControlName="type">
+                <mat-option *ngFor="let type of types" [value]="type">
+                    {{type}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="_type.invalid && _type.errors.required">Type is required filed
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Unit</mat-label>
+            <mat-select [(ngModel)]="sensor.unit" name="unit" formControlName="unit">
+                <mat-option *ngFor="let unit of units" [value]="unit">
+                    {{unit}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="_unit.invalid && _unit.errors.required">Unit is required filed
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Location</mat-label>
+            <input [(ngModel)]="sensor.location" matInput autocomplete="off" formControlName="location">
+            <mat-error *ngIf="_location.invalid && _location.errors.required">Location is required filed
+            </mat-error>
+            <mat-error *ngIf="_location.invalid && _location.errors.maxlength">Location length must be less than 41
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea [(ngModel)]="sensor.description" matInput autocomplete="off" formControlName="description"></textarea>
+            <mat-error *ngIf="_description.invalid && _description.errors.required">Description is required filed
+            </mat-error>
+            <mat-error *ngIf="_description.invalid && _description.errors.maxlength">Description length must be less
+                than 200
+            </mat-error>
+        </mat-form-field>
+    </div>
+</form>
+<div class="button-container">
+    <input type="button" value="Save" (click)="save()">
+    <input type="button" value="Cancel" (click)="cancel()">
+</div>

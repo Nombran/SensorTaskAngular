@@ -1,0 +1,57 @@
+@import '../../../styles.scss';
+
+body {
+    height: 100vh;
+}
+
+::ng-deep .snackbar-error {
+    color: white;
+    background:red;
+}
+
+::ng-deep .snackbar-success {
+    color: white;
+    background: green;
+}
+
+
+h1 {
+    margin-left: 45%;
+}
+
+.form-container {
+    @include flex-row;
+    margin-left: 15%;
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    .column {
+        @include flex-column;
+        justify-content: flex-start;
+        height: 60vh;
+        width: 30vw;
+        mat-form-field {
+            width: 25vw;
+        }
+    }
+}
+.button-container {
+    @include flex-row;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: 23vw;
+    padding-right: 23vw;
+    input {
+        height: 6vh;
+        width: 20vw;
+        color: white;
+        background-color: rgb(0, 119, 255);
+        margin-bottom: 1vh;
+        border: 1px solid rgb(0, 119, 255);
+        &:hover {
+            cursor: pointer;
+            color: rgb(0, 119, 255);
+            background-color: white;
+        }
+    }
+}
