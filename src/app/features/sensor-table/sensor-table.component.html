@@ -29,7 +29,9 @@
                 <td>
                     <p-button *ngIf="userRole=='ROLE_ADMIN'" type="button" icon="pi pi-pencil" (click)="editSensor(sensor.id)"></p-button>
                 </td>
-                <td>{{sensor.name}}</td>
+                <td class="tooltip">{{sensor.name}}
+                    <span class=tooltiptext>{{sensor.description}}</span>
+                </td>
                 <td>{{sensor.model}}</td>
                 <td>{{sensor.sensorType}}</td>
                 <td>{{sensor.rangeTo}}</td>

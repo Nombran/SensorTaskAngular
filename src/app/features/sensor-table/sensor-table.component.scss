@@ -2,7 +2,7 @@
 
 ::ng-deep .snackbar-error {
     color: white;
-    background:red;
+    background: red;
 }
 
 ::ng-deep .snackbar-success {
@@ -19,6 +19,23 @@
     p-table {
         width: 70%;
         border: 1px solid black;
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
     }
     .create {
         height: 5vh;

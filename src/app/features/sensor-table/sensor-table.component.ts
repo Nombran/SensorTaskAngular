@@ -25,7 +25,7 @@ export class SensorPageComponent implements OnInit {
     loading: boolean;
     sensors: Sensor[];
     totalRecords: number;
-    perPage: number = 5;
+    perPage: number = 4;
     currentPage: number = 1;
     searchFormControl: FormControl = new FormControl();
     authState: Observable<any>;

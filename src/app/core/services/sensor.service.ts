@@ -26,7 +26,7 @@ export class SensorService {
         if (params.perPage) {
             httpParams = httpParams.set('perPage', params.perPage.toString());
         } else {
-            httpParams = httpParams.set('perPage', '5');
+            httpParams = httpParams.set('perPage', '4');
         }
         if (params.textPart) {
             httpParams = httpParams.set('textPart', params.textPart);
